@@ -1,16 +1,11 @@
 ﻿namespace MauiMemoryleak;
 
-public interface INavigationService
-{
-    Task NavigateAsync<TView>()
-        where TView : class, IView, new();
-}
 public class NavigationService : INavigationService
 {
     public async Task NavigateAsync<TView>() where TView
         : class, IView, new()
     {
-        await MainThread.InvokeOnMainThreadAsync(async () =>
+        await MainThread.InvokeOnMainThreadAsync(() =>
         {
             var view = Activator.CreateInstance<TView>();
             var page = view as Page;

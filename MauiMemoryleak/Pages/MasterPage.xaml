@@ -7,10 +7,10 @@
              Title="MasterPage"
              x:Class="MauiMemoryleak.Pages.MasterPage">
     <FlyoutPage.Flyout>
-        <ContentPage
-            Title="Panel"
-            BackgroundColor="{StaticResource White}">
-            <Label Text="This is the masterpage"/>
+        <ContentPage Title="Panel">
+            <Grid RowDefinitions="*,*">
+                <Label Grid.Row="0" Text="This is the MasterPage"/>
+            </Grid>
         </ContentPage>
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>

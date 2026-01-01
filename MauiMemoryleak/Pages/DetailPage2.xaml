@@ -7,7 +7,10 @@
              x:Class="MauiMemoryleak.Pages.DetailPage2"
              Title="DetailPage2">
     <ContentPage.Content>
-        <Button Text="This is DetailPage2, Click To Navigate To DetailPage1"
-                Clicked="Button_OnClicked"/>
+        <StackLayout>
+            <Label Text="This is DetailPage2"/>
+            <Button Text="Click To Navigate To DetailPage1"
+                    Clicked="Button_OnClicked"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
