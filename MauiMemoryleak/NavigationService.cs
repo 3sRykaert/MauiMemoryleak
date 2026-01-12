@@ -3,7 +3,7 @@
 public class NavigationService : INavigationService
 {
     public async Task NavigateAsync<TView>() where TView
-        : class, IView, new()
+        : Page
     {
         await MainThread.InvokeOnMainThreadAsync(() =>
         {
@@ -20,13 +20,19 @@ public class NavigationService : INavigationService
         var mainPage = Application.Current?.Windows.FirstOrDefault();
         if (mainPage != null)
         {
-            if (!(mainPage.Page is MasterPage masterPage))
+            if (mainPage.Page is not MasterPage masterPage)
             {
-                masterPage = new MasterPage();
-                mainPage.Page = masterPage;
+                var newMasterPage = new MasterPage
+                {
+                    Detail = page
+                };
+                mainPage.Page.Navigation.PushAsync(new NavigationPage(newMasterPage));
             }
-
-            masterPage.Detail = new NavigationPage(page); // This line causes the memory leak
+            else
+            {
+                masterPage.Navigation.PushAsync(new NavigationPage(page));
+            }
+            //masterPage.Detail = new NavigationPage(page); // This line causes the memory leak
             //masterPage.Detail = page; // This line does not cause the memory leak
         }
     }
