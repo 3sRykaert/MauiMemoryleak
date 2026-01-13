@@ -3,13 +3,11 @@
 public class NavigationService : INavigationService
 {
     public async Task NavigateAsync<TView>() where TView
-        : class, IView, new()
+        : Page
     {
         await MainThread.InvokeOnMainThreadAsync(() =>
         {
-            var view = Activator.CreateInstance<TView>();
-            var page = view as Page;
-
+            var page = ServiceHelper.GetService<TView>();
             SetMainPage(page);
         });
     }
@@ -20,14 +18,21 @@ public class NavigationService : INavigationService
         var mainPage = Application.Current?.Windows.FirstOrDefault();
         if (mainPage != null)
         {
-            if (!(mainPage.Page is MasterPage masterPage))
+            if (page is StartPage)
             {
-                masterPage = new MasterPage();
-                mainPage.Page = masterPage;
+                mainPage.Page = page;
             }
+            else
+            {
+                if (mainPage.Page is not MasterPage masterPage)
+                {
+                    masterPage = ServiceHelper.GetService<MasterPage>(); //back button does NOT work in DetailPages after this
+                    //masterPage = Activator.CreateInstance<MasterPage>(); //back button still works
+                    mainPage.Page = masterPage;
+                }
 
-            masterPage.Detail = new NavigationPage(page); // This line causes the memory leak
-            //masterPage.Detail = page; // This line does not cause the memory leak
+                masterPage.Detail = new NavigationPage(page);
+            }
         }
     }
 }

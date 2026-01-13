@@ -11,6 +11,8 @@
             <Label Text="This is DetailPage1"/>
             <Button Text="Click To Navigate To DetailPage2"
                     Clicked="Button_OnClicked"/>
+            <Button Text="Click To Navigate To StartPage"
+                    Clicked="ButtonStartPage_OnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

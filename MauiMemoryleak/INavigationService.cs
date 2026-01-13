@@ -3,5 +3,5 @@
 public interface INavigationService
 {
     Task NavigateAsync<TView>()
-        where TView : class, IView, new();
+        where TView : Page;
 }

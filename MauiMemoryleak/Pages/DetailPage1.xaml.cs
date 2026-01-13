@@ -12,4 +12,10 @@ public partial class DetailPage1 : ContentPage
         var navigationService = ServiceHelper.GetService<INavigationService>();
         await navigationService.NavigateAsync<DetailPage2>();
     }
+
+    private async void ButtonStartPage_OnClicked(object? sender, EventArgs e)
+    {
+        var navigationService = ServiceHelper.GetService<INavigationService>();
+        await navigationService.NavigateAsync<StartPage>();
+    }
 }
