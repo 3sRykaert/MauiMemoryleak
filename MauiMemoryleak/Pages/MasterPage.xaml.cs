@@ -2,8 +2,11 @@
 
 public partial class MasterPage : FlyoutPage
 {
-    public MasterPage()
+    private readonly INavigationService _navigationService;
+
+    public MasterPage(INavigationService navigationService)
     {
+        _navigationService = navigationService;
         InitializeComponent();
     }
 
@@ -15,7 +18,6 @@ public partial class MasterPage : FlyoutPage
 
     private async void ButtonStartPage_OnClicked(object? sender, EventArgs e)
     {
-        var navigationService = ServiceHelper.GetService<INavigationService>();
-        await navigationService.NavigateAsync<StartPage>();
+        await _navigationService.NavigateAsync<StartPage>();
     }
 }

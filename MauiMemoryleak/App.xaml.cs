@@ -2,17 +2,17 @@
 {
     public partial class App : Application
     {
-        private readonly INavigationService? _navigationService;
+        private readonly StartPage _startPage;
 
         public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _navigationService = serviceProvider.GetService<INavigationService>();
+            _startPage = serviceProvider.GetService<StartPage>();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new StartPage(_navigationService));
+            return new Window(_startPage);
         }
     }
 }

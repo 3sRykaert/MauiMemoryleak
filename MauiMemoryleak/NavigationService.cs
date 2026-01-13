@@ -26,8 +26,7 @@ public class NavigationService : INavigationService
             {
                 if (mainPage.Page is not MasterPage masterPage)
                 {
-                    masterPage = ServiceHelper.GetService<MasterPage>(); //back button does NOT work in DetailPages after this
-                    //masterPage = Activator.CreateInstance<MasterPage>(); //back button still works
+                    masterPage = ServiceHelper.GetService<MasterPage>();
                     mainPage.Page = masterPage;
                 }
 

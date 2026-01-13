@@ -8,7 +8,7 @@
              x:Class="MauiMemoryleak.Pages.MasterPage">
     <FlyoutPage.Flyout>
         <ContentPage Title="Panel">
-            <Grid RowDefinitions="*,*">
+            <Grid RowDefinitions="*,*,*">
                 <Label Grid.Row="0" Text="This is the MasterPage"/>
                 <Button Grid.Row="1" Text="Click To Navigate To StartPage"
                         Clicked="ButtonStartPage_OnClicked"/>
