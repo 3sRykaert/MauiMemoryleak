@@ -19,4 +19,12 @@ public partial class DetailPage1 : ContentPage
     {
         await _navigationService.NavigateAsync<StartPage>();
     }
+
+    private async void NonFlyOutPage_OnClicked(object? sender, EventArgs e)
+    {
+        var currentPage = Application.Current?.Windows.FirstOrDefault()?.Page;
+        Application.Current?.Windows.FirstOrDefault()?.Page = ServiceHelper.GetService<DetailPage2>(); //not as flyout page
+        await Task.Delay(TimeSpan.FromSeconds(3));
+        Application.Current?.Windows.FirstOrDefault()?.Page = currentPage;
+    }
 }
