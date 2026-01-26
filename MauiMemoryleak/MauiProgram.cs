@@ -15,13 +15,7 @@ namespace MauiMemoryleak
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
                     fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
-                })
-                .Services
-                    .AddSingleton<INavigationService, NavigationService>()
-                    .AddTransient<StartPage>()
-                    .AddTransient<MasterPage>()
-                    .AddTransient<DetailPage1>()
-                    .AddTransient<DetailPage2>();
+                });
 
 #if DEBUG
             //builder.UseLeakDetection(collectionTarget =>
@@ -33,8 +27,6 @@ namespace MauiMemoryleak
 #endif
 
             var app = builder.Build();
-
-            ServiceHelper.Initialize(app.Services);
 
             return app;
         }

@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="MauiMemoryleak/MauiMemoryleak.csproj" />
+  <Project Path="UnitTests/UnitTests.csproj" Id="4b597807-90e8-4816-bde7-757993a0c677" />
 </Solution>
