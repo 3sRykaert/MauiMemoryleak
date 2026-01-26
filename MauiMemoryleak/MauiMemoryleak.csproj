@@ -20,7 +20,8 @@
 		<ApplicationId>com.companyname.mauimemoryleak</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion><!--This works-->
+		<!--<ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>--><!--This does NOT works-->
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
