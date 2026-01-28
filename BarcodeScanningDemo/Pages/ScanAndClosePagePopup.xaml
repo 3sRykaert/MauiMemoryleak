@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<pages:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:barcodeScanning="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+           xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+           x:Class="BarcodeScanningDemo.Pages.ScanAndClosePagePopup">
+
+    <AbsoluteLayout>
+        <barcodeScanning:CameraView AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            CaptureQuality="High"
+                            TapToFocusEnabled="True"
+                            BarcodeSymbologies="QRCode"
+                            AimMode="True"
+                            x:Name="Barcode"/>
+
+        <GraphicsView AbsoluteLayout.LayoutFlags="All"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      x:Name="Graphics"
+                      InputTransparent="True"/>
+
+        <Grid ColumnDefinitions="*, *, *" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.1">
+            <ImageButton x:Name="FlashLightButton" Grid.Column="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="TorchButton_Clicked" Background="Transparent"/>
+            <ImageButton x:Name="VibrateButton" Grid.Column="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="VibrateButton_Clicked" Background="Transparent"/>
+            <ImageButton x:Name="AimButton" Grid.Column="2" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="AimButton_Clicked" Background="Transparent"/>
+        </Grid>
+    </AbsoluteLayout>
+</pages:PopupPage>

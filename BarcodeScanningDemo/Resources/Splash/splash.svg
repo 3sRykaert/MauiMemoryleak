@@ -1,0 +1,23 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+	<!-- Define the QR Code Symbol to reuse it 4 times -->
+	<defs>
+		<symbol id="mini-qr" viewBox="0 0 10 10">
+			<!-- 3 Corner Squares (QR Identification Markers) -->
+			<path d="M0 0h3v3H0V0zm7 0h3v3H7V0zM0 7h3v10H0V7z" fill="black"/>
+			<path d="M1 1h1v1H1V1zm7 0h1v1H8V1zm-7 7h1v1H1V8z" fill="none" />
+			<!-- Space inside markers -->
+			<!-- Center "Data" Bits -->
+			<path d="M4 0h2v1H4V0zM4 3h1v1H4V3zM6 4h1v1H6V4zM4 6h1v1H4V6zM7 7h1v1H7V7zM9 9h1v1H9V9zM2 4h1v1H2V4z" fill="black"/>
+		</symbol>
+	</defs>
+
+	<!-- Magnifying Glass Handle -->
+	<rect x="68" y="62" width="8" height="30" rx="4" transform="rotate(-45 68 62)" fill="black" />
+
+	<!-- Magnifying Glass Lens Frame -->
+	<circle cx="42" cy="42" r="34" stroke="black" stroke-width="5" fill="none" />
+
+	<g transform="translate(22, 22)">
+		<use href="#mini-qr" x="-2" y="-2" width="45" height="45" />
+	</g>
+</svg>

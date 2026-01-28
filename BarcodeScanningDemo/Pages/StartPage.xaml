@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeScanningDemo.Pages.StartPage"
+             Title="StartPage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,1,*,1,*" Margin="10">
+            <Button Grid.Row="0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Continuous Scanning"
+                    Clicked="ButtonContinuousScanning_OnClicked"/>
+            <BoxView Grid.Row="1"
+                     Height="1"
+                     Color="Gray"/>
+            <StackLayout Grid.Row="2"
+                         Spacing="10"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+                <Button HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Text="Scan And Close"
+                        Clicked="ButtonScanAndClose_OnClicked"/>
+                <Label Text="Last Scanned QR Code:"/>
+                <Label x:Name="LastScannedQRCode"/>
+            </StackLayout>
+            <BoxView Grid.Row="3"
+                     Height="1"
+                     Color="Gray"/>
+            <StackLayout Grid.Row="4"
+                         Spacing="10"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+                <Button HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Text="Scan And Close with Delay"
+                        Clicked="ButtonScanAndCloseWithDelay_OnClicked"/>
+                <Entry Placeholder="Provide Delay in MilliSeconds after QR"
+                       Keyboard="Numeric"
+                       x:Name="DelayInMilliSeconds"/>
+                <Label Text="Last Scanned QR Code:"/>
+                <Label x:Name="LastScannedQRCodeWithDelay"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
