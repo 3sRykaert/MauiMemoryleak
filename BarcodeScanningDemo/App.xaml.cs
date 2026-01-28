@@ -8,6 +8,7 @@
         public static bool VibrationOnDetected { get; set; } = true;
         public static bool AimMode { get; set; } = true;
         public static int DelayInMilliSeconds { get; set; }
+        public static ScanMode ScanMode { get; set; }
 
         public App(IServiceProvider serviceProvider)
         {

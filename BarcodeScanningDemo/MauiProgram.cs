@@ -41,9 +41,7 @@ namespace BarcodeScanningDemo
                 .ConfigureMopups()
                 .Services
                     .AddTransient<StartPage>()
-                    .AddTransient<ScanPagePopup>()
                     .AddTransient<ScanAndClosePagePopup>()
-                    .AddTransient<ScanAndClosePagePopupWithDelay>()
                     .AddSingleton<INavigationService, NavigationService>()
                     .AddSingleton<IPopupNavigation>(MopupService.Instance);
                 ;

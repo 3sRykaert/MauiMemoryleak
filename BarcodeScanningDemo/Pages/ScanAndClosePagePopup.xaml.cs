@@ -54,11 +54,23 @@ public partial class ScanAndClosePagePopup : PopupPage
         _drawable.BarcodeResults = results;
         Graphics.Invalidate();
 
-        if (results?.Count > 0)
+        switch (App.ScanMode)
         {
-            var bardCode = results.First().DisplayValue;
-            Barcode.OnDetectionFinished -= CameraView_OnDetectionFinished;
-            _taskCompletionSource.SetResult(bardCode);
+            case ScanMode.Continuous:
+                break;
+            case ScanMode.ScanAndClose:
+            case ScanMode.ScanAndCloseWithDelay:
+                if (results?.Count > 0)
+                {
+                    var bardCode = results.First().DisplayValue;
+                    Barcode.OnDetectionFinished -= CameraView_OnDetectionFinished;
+                    if (App.ScanMode == ScanMode.ScanAndCloseWithDelay)
+                        await Task.Delay(TimeSpan.FromMilliseconds(App.DelayInMilliSeconds));// Small delay to allow user to see the detected barcode
+                    _taskCompletionSource.SetResult(bardCode);
+                }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 

@@ -18,10 +18,18 @@ public partial class StartPage : ContentPage
 
     private async void ButtonContinuousScanning_OnClicked(object? sender, EventArgs e)
     {
-        await _popupNavigation.PushAsync(ServiceHelper.GetService<ScanPagePopup>());
+        App.ScanMode = ScanMode.Continuous;
+        var popup = ServiceHelper.GetService<ScanAndClosePagePopup>();
+        await _popupNavigation.PushAsync(popup);
+
+        await popup.ResultFromScan;
+
+        await _popupNavigation.PopAsync();
     }
+
     private async void ButtonScanAndClose_OnClicked(object? sender, EventArgs e)
     {
+        App.ScanMode = ScanMode.ScanAndClose;
         var popup = ServiceHelper.GetService<ScanAndClosePagePopup>();
         await _popupNavigation.PushAsync(popup);
 
@@ -33,11 +41,12 @@ public partial class StartPage : ContentPage
 
     private async void ButtonScanAndCloseWithDelay_OnClicked(object? sender, EventArgs e)
     {
+        App.ScanMode = ScanMode.ScanAndCloseWithDelay;
         App.DelayInMilliSeconds = int.TryParse(DelayInMilliSeconds.Text, out var result)
             ? result
             : 0;
 
-        var popup = ServiceHelper.GetService<ScanAndClosePagePopupWithDelay>();
+        var popup = ServiceHelper.GetService<ScanAndClosePagePopup>();
         await _popupNavigation.PushAsync(popup);
 
         var scannedQr = await popup.ResultFromScan;

@@ -59,25 +59,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\ScanAndClosePagePopupWithDelay.xaml.cs">
-	    <DependentUpon>ScanAndClosePagePopupWithDelay.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\ScanAndClosePagePopup.xaml.cs">
 	    <DependentUpon>ScanAndClosePagePopup.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\ScanPagePopup.xaml.cs">
-	    <DependentUpon>ScanPagePopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\ScanAndClosePagePopupWithDelay.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\ScanAndClosePagePopup.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ScanPagePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
