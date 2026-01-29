@@ -121,8 +121,8 @@ public partial class ScanAndClosePagePopup : PopupPage
             {
                 var displayInfo = DeviceDisplay.MainDisplayInfo;
 
-                var p1 = new Point(pointTappedPosition.Value.X * displayInfo.Density, pointTappedPosition.Value.Y * displayInfo.Density);
-                var barcodeResult = _drawable.BarcodeResults.FirstOrDefault(x => x.PreviewBoundingBox.Contains(p1));
+                var adjustedPoint = new Point(pointTappedPosition.Value.X * displayInfo.Density, pointTappedPosition.Value.Y * displayInfo.Density);
+                var barcodeResult = _drawable.BarcodeResults.FirstOrDefault(x => x.PreviewBoundingBox.Contains(adjustedPoint));
                 if (barcodeResult != null)
                 {
                     Barcode.OnDetectionFinished -= CameraView_OnDetectionFinished;
