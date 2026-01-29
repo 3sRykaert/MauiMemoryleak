@@ -3,6 +3,7 @@
 public enum ScanMode
 {
     Continuous,
+    ContinuousWithSelection,
     ScanAndClose,
     ScanAndCloseWithDelay
 }

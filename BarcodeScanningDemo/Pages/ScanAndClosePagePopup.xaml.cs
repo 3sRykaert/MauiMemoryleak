@@ -22,13 +22,14 @@ public partial class ScanAndClosePagePopup : PopupPage
         Barcode.CameraEnabled = true;
         Barcode.OnDetectionFinished += CameraView_OnDetectionFinished;
         Graphics.Drawable = _drawable;
+        Graphics.InputTransparent = App.ScanMode != ScanMode.ContinuousWithSelection;
 
         if (App.TorchOn)
             await Task.Delay(TimeSpan.FromMilliseconds(100)); //needed it seems
         Barcode.TorchOn = App.TorchOn;
         Barcode.VibrationOnDetected = App.VibrationOnDetected;
         Barcode.AimMode = App.AimMode;
-        
+
         SetFlashLightButtonSource();
         SetVibrateButtonSource();
         SetAimButtonSource();
@@ -57,6 +58,7 @@ public partial class ScanAndClosePagePopup : PopupPage
         switch (App.ScanMode)
         {
             case ScanMode.Continuous:
+            case ScanMode.ContinuousWithSelection:
                 break;
             case ScanMode.ScanAndClose:
             case ScanMode.ScanAndCloseWithDelay:
@@ -108,5 +110,25 @@ public partial class ScanAndClosePagePopup : PopupPage
     private void SetAimButtonSource()
     {
         AimButton.Source = Barcode.AimMode ? "aimmode_aim.svg" : "aimmode_find.svg";
+    }
+
+    private void TapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        if (App.ScanMode == ScanMode.ContinuousWithSelection && _drawable.BarcodeResults?.Any() == true)
+        {
+            var pointTappedPosition = e.GetPosition(null);
+            if (pointTappedPosition.HasValue)
+            {
+                var displayInfo = DeviceDisplay.MainDisplayInfo;
+
+                var p1 = new Point(pointTappedPosition.Value.X * displayInfo.Density, pointTappedPosition.Value.Y * displayInfo.Density);
+                var barcodeResult = _drawable.BarcodeResults.FirstOrDefault(x => x.PreviewBoundingBox.Contains(p1));
+                if (barcodeResult != null)
+                {
+                    Barcode.OnDetectionFinished -= CameraView_OnDetectionFinished;
+                    _taskCompletionSource.SetResult(barcodeResult.DisplayValue);
+                }
+            }
+        }
     }
 }

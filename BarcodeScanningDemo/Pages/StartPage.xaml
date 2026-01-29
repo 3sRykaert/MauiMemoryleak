@@ -5,7 +5,7 @@
              x:Class="BarcodeScanningDemo.Pages.StartPage"
              Title="StartPage">
     <ContentPage.Content>
-        <Grid RowDefinitions="*,1,*,1,*" Margin="10">
+        <Grid RowDefinitions="*,1,*,1,*,1,*" Margin="10">
             <Button Grid.Row="0"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
@@ -14,7 +14,24 @@
             <BoxView Grid.Row="1"
                      Height="1"
                      Color="Gray"/>
+            <!---->
             <StackLayout Grid.Row="2"
+                         Spacing="10"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+                <Button HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Text="Continuous With Selection Scanning"
+                        Clicked="ButtonContinuousScanningWithSelection_OnClicked"/>
+                <Label Text="Last Scanned QR Code:"/>
+                <Label x:Name="LastScannedQRCodeWithSelection"/>
+            </StackLayout>
+            <BoxView Grid.Row="3"
+                     Height="1"
+                     Color="Gray"/>
+            <!---->
+            <StackLayout Grid.Row="4"
                          Spacing="10"
                          HorizontalOptions="Center"
                          VerticalOptions="Center">
@@ -26,10 +43,11 @@
                 <Label Text="Last Scanned QR Code:"/>
                 <Label x:Name="LastScannedQRCode"/>
             </StackLayout>
-            <BoxView Grid.Row="3"
+            <BoxView Grid.Row="5"
                      Height="1"
                      Color="Gray"/>
-            <StackLayout Grid.Row="4"
+            <!---->
+            <StackLayout Grid.Row="6"
                          Spacing="10"
                          HorizontalOptions="Center"
                          VerticalOptions="Center">

@@ -8,17 +8,20 @@
 
     <AbsoluteLayout>
         <barcodeScanning:CameraView AbsoluteLayout.LayoutFlags="All"
-                            AbsoluteLayout.LayoutBounds="0,0,1,1"
-                            CaptureQuality="High"
-                            TapToFocusEnabled="True"
-                            BarcodeSymbologies="QRCode"
-                            AimMode="True"
-                            x:Name="Barcode"/>
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    CaptureQuality="High"
+                                    TapToFocusEnabled="True"
+                                    BarcodeSymbologies="QRCode"
+                                    AimMode="True"
+                                    x:Name="Barcode"/>
 
         <GraphicsView AbsoluteLayout.LayoutFlags="All"
                       AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      x:Name="Graphics"
-                      InputTransparent="True"/>
+                      x:Name="Graphics">
+            <GraphicsView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+            </GraphicsView.GestureRecognizers>
+        </GraphicsView>
 
         <Grid ColumnDefinitions="*, *, *" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.1">
             <ImageButton x:Name="FlashLightButton" Grid.Column="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="TorchButton_Clicked" Background="Transparent"/>

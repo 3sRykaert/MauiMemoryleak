@@ -27,6 +27,18 @@ public partial class StartPage : ContentPage
         await _popupNavigation.PopAsync();
     }
 
+    private async void ButtonContinuousScanningWithSelection_OnClicked(object? sender, EventArgs e)
+    {
+        App.ScanMode = ScanMode.ContinuousWithSelection;
+        var popup = ServiceHelper.GetService<ScanAndClosePagePopup>();
+        await _popupNavigation.PushAsync(popup);
+
+        var scannedQr = await popup.ResultFromScan;
+
+        await _popupNavigation.PopAsync();
+        LastScannedQRCodeWithSelection.Text = scannedQr;
+    }
+
     private async void ButtonScanAndClose_OnClicked(object? sender, EventArgs e)
     {
         App.ScanMode = ScanMode.ScanAndClose;
