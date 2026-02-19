@@ -33,6 +33,7 @@ public partial class ScanAndClosePagePopup : PopupPage
         SetFlashLightButtonSource();
         SetVibrateButtonSource();
         SetAimButtonSource();
+        SetTapToSelectButtonSource();
     }
 
     protected override void OnDisappearing()
@@ -97,6 +98,12 @@ public partial class ScanAndClosePagePopup : PopupPage
         SetAimButtonSource();
     }
 
+    private void TapToSelectButton_Clicked(object? sender, EventArgs e)
+    {
+        App.TapToSelect = !App.TapToSelect;
+        SetTapToSelectButtonSource();
+    }
+
     private void SetFlashLightButtonSource()
     {
         FlashLightButton.Source = Barcode.TorchOn ? "flashlight_on.svg" : "flashlight_off.svg";
@@ -110,6 +117,11 @@ public partial class ScanAndClosePagePopup : PopupPage
     private void SetAimButtonSource()
     {
         AimButton.Source = Barcode.AimMode ? "aimmode_aim.svg" : "aimmode_find.svg";
+    }
+
+    private void SetTapToSelectButtonSource()
+    {
+        TapToSelectButton.Source = App.TapToSelect ? "tap_to_select.svg" : "no_tap_to_select.svg";
     }
 
     private void TapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)

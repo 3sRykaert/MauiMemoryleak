@@ -55,10 +55,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Resources\Images\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Pages\ScanAndClosePagePopup.xaml.cs">
 	    <DependentUpon>ScanAndClosePagePopup.xaml</DependentUpon>
 	  </Compile>

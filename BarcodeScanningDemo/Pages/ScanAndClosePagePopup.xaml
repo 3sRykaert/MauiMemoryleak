@@ -23,10 +23,11 @@
             </GraphicsView.GestureRecognizers>
         </GraphicsView>
 
-        <Grid ColumnDefinitions="*, *, *" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.1">
+        <Grid ColumnDefinitions="*, *, *, *" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.1">
             <ImageButton x:Name="FlashLightButton" Grid.Column="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="TorchButton_Clicked" Background="Transparent"/>
             <ImageButton x:Name="VibrateButton" Grid.Column="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="VibrateButton_Clicked" Background="Transparent"/>
-            <ImageButton x:Name="AimButton" Grid.Column="2" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="AimButton_Clicked" Background="Transparent"/>
+            <ImageButton x:Name="TapToSelectButton" Grid.Column="2" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="TapToSelectButton_Clicked" Background="Transparent"/>
+            <ImageButton x:Name="AimButton" Grid.Column="3" WidthRequest="50" HeightRequest="50" CornerRadius="25" Clicked="AimButton_Clicked" Background="Transparent"/>
         </Grid>
     </AbsoluteLayout>
 </pages:PopupPage>
