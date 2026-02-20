@@ -15,21 +15,17 @@ namespace MauiMemoryleak
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
                     fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
-                })
-                .Services.AddSingleton<INavigationService, NavigationService>();
-
+                });
 #if DEBUG
         builder.UseLeakDetection(collectionTarget =>
         {
             // This callback will run any time a leak is detected.
-            var mainPage = Application.Current?.Windows.FirstOrDefault()?.Page;
+            var mainPage = Application.Current?.Windows[0].Page;
             mainPage.DisplayAlertAsync("💦Leak Detected💦", $"❗🧟❗{collectionTarget.Name} is a zombie!", "OK");
         });
 #endif
 
             var app = builder.Build();
-
-            ServiceHelper.Initialize(app.Services);
 
             return app;
         }

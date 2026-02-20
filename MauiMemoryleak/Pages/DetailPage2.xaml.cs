@@ -8,9 +8,9 @@ public partial class DetailPage2 : ContentPage
         InitializeComponent();
     }
 
-    private async void Button_OnClicked(object? sender, EventArgs e)
+    private void Button_OnClicked(object? sender, EventArgs e)
     {
-        var navigationService = ServiceHelper.GetService<INavigationService>();
-        await navigationService.NavigateAsync<DetailPage1>();
+        if (Application.Current.Windows[0].Page is FlyoutPage flyoutPage)
+            flyoutPage.Detail = new NavigationPage(new DetailPage1());
     }
 }

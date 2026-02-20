@@ -52,7 +52,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AdamE.MemoryToolkit.Maui" Version="1.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.20" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,9 +62,6 @@
 	  <Compile Update="Pages\DetailPage1.xaml.cs">
 	    <DependentUpon>DetailPage1.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\StartPage.xaml.cs">
-	    <DependentUpon>StartPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -72,9 +69,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\DetailPage1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
