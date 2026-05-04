@@ -51,8 +51,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AdamE.MemoryToolkit.Maui" Version="1.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
+		<PackageReference Include="AdamE.MemoryToolkit.Maui" Version="2.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.60" />
 	</ItemGroup>
 
 	<ItemGroup>
