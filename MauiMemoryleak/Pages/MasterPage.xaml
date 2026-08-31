@@ -2,21 +2,21 @@
 
 <FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maui="clr-namespace:MemoryToolkit.Maui;assembly=MemoryToolkit.Maui"
-             maui:LeakMonitorBehavior.Cascade="True"
+             xmlns:pages="clr-namespace:MauiMemoryleak.Pages"
              Title="MasterPage"
              x:Class="MauiMemoryleak.Pages.MasterPage">
     <FlyoutPage.Flyout>
         <ContentPage Title="Panel">
             <Grid RowDefinitions="*,*,*">
                 <Label Grid.Row="0" Text="This is the MasterPage"/>
-                <Button Grid.Row="1" Text="Click To Navigate To StartPage"
-                        Clicked="ButtonStartPage_OnClicked"/>
             </Grid>
         </ContentPage>
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>
         <NavigationPage>
+            <!--<x:Arguments>
+                <pages:DetailPage1 />
+            </x:Arguments>-->
             <x:Arguments>
                 <ContentPage />
             </x:Arguments>

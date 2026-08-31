@@ -2,16 +2,17 @@
 
 public partial class StartPage : ContentPage
 {
-    private readonly INavigationService _navigationService;
-
-    public StartPage(INavigationService navigationService)
+    public StartPage()
     {
-        _navigationService = navigationService;
         InitializeComponent();
     }
 
     private async void Button_OnClicked(object? sender, EventArgs e)
     {
-        await _navigationService.NavigateAsync<DetailPage1>();
+        Application.Current?.Windows[0].Page = new MasterPage
+        {
+            Detail = new NavigationPage(new DetailPage1())
+        };
+        //await _navigationService.NavigateAsync<DetailPage1>();
     }
 }

@@ -2,17 +2,19 @@
 {
     public partial class App : Application
     {
-        private readonly StartPage _startPage;
-
-        public App(IServiceProvider serviceProvider)
+        public App()
         {
             InitializeComponent();
-            _startPage = serviceProvider.GetService<StartPage>();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(_startPage);
+            var page = new StartPage();
+            //var page =new MasterPage
+            //{
+            //    Detail = new NavigationPage(new DetailPage1())
+            //};
+            return new Window(page);
         }
     }
 }
