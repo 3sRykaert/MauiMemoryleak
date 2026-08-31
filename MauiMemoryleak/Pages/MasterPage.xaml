@@ -14,9 +14,6 @@
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>
         <NavigationPage>
-            <!--<x:Arguments>
-                <pages:DetailPage1 />
-            </x:Arguments>-->
             <x:Arguments>
                 <ContentPage />
             </x:Arguments>
