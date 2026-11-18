@@ -19,6 +19,12 @@
 		<Nullable>enable</Nullable>
 		<MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
 
+		<EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk> <!--set false to be able to debug-->
+		<PublishTrimmed>false</PublishTrimmed> <!--set false to be able to debug-->
+		<EnableHotReload>true</EnableHotReload> <!--uncomment & set true for xaml hotreload, beware itemtapped event doesn't seem to work anymore when using hotreload-->
+		<MauiXamlCValidateOnly>true</MauiXamlCValidateOnly> <!--uncomment & set true for xaml hotreload, beware itemtapped event doesn't seem to work anymore when using hotreload-->
+
+
 		<!-- Display name -->
 		<ApplicationTitle>MauiMemoryleak</ApplicationTitle>
 

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MauiMemoryleak.Pages"
+             x:Class="MauiMemoryleak.Pages.SomePage"
+             x:DataType="pages:SomePageViewmodel">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Do something" Command="{Binding SomeCommand}" />
+            <Label Text="StartUpTime" />
+            <Label Text="{Binding StartUpTime, StringFormat='{0:o}'}" />
+            <Label Text="UtcNow1" />
+            <Label Text="{Binding UtcNow1, StringFormat='{0:o}'}" />
+            <Label Text="Difference" />
+            <Label Text="{Binding Difference}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
