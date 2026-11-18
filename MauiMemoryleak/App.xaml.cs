@@ -1,16 +1,18 @@
-﻿namespace MauiMemoryleak
-{
-    public partial class App : Application
-    {
-        public App(IServiceProvider serviceProvider)
-        {
-            InitializeComponent();
-        }
+﻿namespace MauiMemoryleak;
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            //return new Window(new StartPage(_navigationService));
-            return new Window(new MasterPage() { Detail = new NavigationPage(new DetailPage1())});
-        }
+public partial class App : Application
+{
+    private readonly IServiceProvider _serviceProvider;
+
+    public App(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+        InitializeComponent();
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var somePage = _serviceProvider.GetRequiredService<SomePage>();
+        return new Window(somePage);
     }
 }
